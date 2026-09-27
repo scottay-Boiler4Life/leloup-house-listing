@@ -5,174 +5,346 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2200 Le Loup Dr - Custom North Forty Retreat | Prescott, Arizona</title>
     <style>
-        /* Simple, clean styling to make the site look professional */
+        /* Premium luxury real estate styling */
         :root {
-            --navy: #2c3e50;
-            --green: #27ae60;
-            --green-dark: #219150;
-            --bg: #f9f9f9;
-            --card: #ffffff;
-            --text: #333333;
-            --muted: #7f8c8d;
-            --shadow: rgba(0, 0, 0, 0.1);
+            --luxury-dark: #1a1a1a;
+            --gold: #d4af37;
+            --sage: #6b8e7e;
+            --cream: #f5f3f0;
+            --white: #ffffff;
+            --text: #2d2d2d;
+            --muted: #777777;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-deep: rgba(0, 0, 0, 0.15);
         }
 
         * { box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', 'Garamond', serif;
             margin: 0;
             padding: 0;
             color: var(--text);
-            background-color: var(--bg);
-            line-height: 1.6;
+            background-color: var(--cream);
+            line-height: 1.8;
+            letter-spacing: 0.3px;
         }
 
+        /* Header & Logo */
         header {
-            background: var(--navy);
-            color: white;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--luxury-dark) 0%, #2d2d2d 100%);
+            color: var(--white);
+            padding: 30px 20px;
             text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), #e6c200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--luxury-dark);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
         header h1 {
             margin: 0;
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         header p {
-            margin: 10px 0 0;
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #bdc3c7;
+            margin: 8px 0 0;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--gold);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #c9c9c9;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Price Section */
+        .price-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 12px var(--shadow);
+            border-top: 4px solid var(--gold);
         }
 
         .price {
-            font-size: clamp(1.7rem, 3vw, 2.2rem);
-            color: var(--green);
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: var(--gold);
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 1px;
         }
 
+        .price-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        /* Details Grid */
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            background: var(--card);
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .detail-card {
+            background: var(--white);
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 12px var(--shadow);
+            border-left: 4px solid var(--sage);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .detail-item {
-            font-size: 1.1em;
+        .detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow-deep);
         }
 
-        .detail-item strong {
-            color: var(--navy);
+        .detail-value {
+            font-size: 1.8rem;
+            color: var(--sage);
+            font-weight: 700;
+            margin: 10px 0;
         }
 
+        .detail-label {
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Description Section */
         .description {
-            background: var(--card);
-            padding: clamp(20px, 4vw, 30px);
-            margin-top: 30px;
+            background: var(--white);
+            padding: clamp(30px, 5vw, 50px);
+            margin-bottom: 50px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 12px var(--shadow);
+            border-top: 4px solid var(--gold);
         }
 
-        .description h2,
-        .gallery-header {
+        .description h2 {
             margin-top: 0;
-            color: var(--navy);
+            color: var(--luxury-dark);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 15px;
+        }
+
+        .description p {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin: 20px 0;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin-bottom: 50px;
+        }
+
+        .gallery-header {
+            margin: 0 0 40px;
+            color: var(--luxury-dark);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .gallery-header::before {
+            content: "★";
+            display: block;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin: 20px 0 0;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .gallery-item {
-            background: var(--card);
+            background: var(--white);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px var(--shadow);
+            box-shadow: 0 4px 16px var(--shadow);
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            position: relative;
         }
 
         .gallery-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px var(--shadow-deep);
         }
 
         .gallery-item img {
             display: block;
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: var(--luxury-dark);
         }
 
         .gallery-item figcaption {
-            padding: 10px 12px 12px;
-            font-size: 0.95rem;
-            color: var(--navy);
+            padding: 18px 16px;
+            font-size: 1rem;
+            color: var(--luxury-dark);
             font-weight: 600;
+            letter-spacing: 0.5px;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.02));
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
+        /* Contact Section */
         .contact-box {
-            background: var(--navy);
-            color: white;
+            background: linear-gradient(135deg, var(--luxury-dark) 0%, #2d2d2d 100%);
+            color: var(--white);
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
+            padding: clamp(40px, 6vw, 60px) 30px;
             border-radius: 8px;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 8px 24px var(--shadow-deep);
+            margin-bottom: 50px;
         }
 
         .contact-box h2 {
-            margin-top: 0;
+            margin: 0 0 15px;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            letter-spacing: 1px;
+        }
+
+        .contact-box p {
+            margin: 0 0 25px;
+            font-size: 1.1rem;
+            color: #d4d4d4;
         }
 
         .contact-btn {
             display: inline-block;
-            background: var(--green);
-            color: white;
-            padding: 12px 30px;
-            text-align: center;
-            font-size: 1.1em;
+            background: linear-gradient(135deg, var(--gold), #e6c200);
+            color: var(--luxury-dark);
+            padding: 16px 50px;
+            font-size: 1.05rem;
             text-decoration: none;
             border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.2s ease;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+            border: none;
+            cursor: pointer;
         }
 
         .contact-btn:hover {
-            background: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #e6c200, var(--gold));
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            header {
+                padding: 25px 15px;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .detail-card {
+                padding: 20px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .contact-btn {
+                width: 100%;
+                padding: 14px 30px;
+            }
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             color: var(--muted);
-            font-size: 0.9em;
+            font-size: 0.9rem;
+            background: #fafafa;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
+        /* Lightbox Styles */
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.92);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 9999;
             padding: 20px;
+            backdrop-filter: blur(5px);
         }
 
         .lightbox.open {
@@ -183,10 +355,10 @@
             position: relative;
             max-width: 95vw;
             max-height: 90vh;
-            background: white;
+            background: #1a1a1a;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
         .lightbox-content img {
@@ -198,308 +370,324 @@
         }
 
         .lightbox-caption {
-            padding: 12px 16px;
+            padding: 16px 20px;
             font-weight: 600;
-            color: var(--navy);
-            background: white;
+            color: var(--gold);
+            background: #1a1a1a;
             text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
         .lightbox-close,
         .lightbox-prev,
         .lightbox-next {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             border: none;
-            background: rgba(255,255,255,0.8);
-            color: var(--navy);
-            width: 44px;
-            height: 44px;
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             z-index: 2;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-close:hover,
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.1);
         }
 
         .lightbox-close {
             top: 18px;
             right: 18px;
-            transform: none;
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
         }
 
-        .lightbox-prev { left: 18px; }
-        .lightbox-next { right: 18px; }
+        .lightbox-prev { 
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-        @media (max-width: 600px) {
-            .container {
-                padding-left: 14px;
-                padding-right: 14px;
-            }
-
-            .gallery-item img {
-                height: 220px;
-            }
-
-            .contact-box {
-                padding: 30px 18px;
-            }
-
-            .contact-btn {
-                width: 100%;
-            }
+        .lightbox-next { 
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>2200 Le Loup Dr</h1>
-        <p>Stunning Property For Sale By Owner</p>
+        <div class="logo-container">
+            <div class="logo">🏡</div>
+            <div>
+                <h1>2200 Le Loup Dr</h1>
+            </div>
+        </div>
+        <p>Custom North Forty Retreat</p>
+        <div class="tagline">Prescott, Arizona</div>
     </header>
 
     <div class="container">
         <!-- Price Section -->
-        <div class="price">$1,100,000</div>
+        <div class="price-section">
+            <div class="price">$1,100,000</div>
+            <div class="price-label">Listed Price</div>
+        </div>
 
         <!-- Quick Stats Grid -->
         <div class="details-grid">
-            <div class="detail-item"><strong>Bedrooms:</strong> 4</div>
-            <div class="detail-item"><strong>Bathrooms:</strong> 2.5</div>
-            <div class="detail-item"><strong>Square Feet:</strong> 2,300 sq ft</div>
-            <div class="detail-item"><strong>Lot Size:</strong> 0.5 Acres</div>
+            <div class="detail-card">
+                <div class="detail-label">Bedrooms</div>
+                <div class="detail-value">4</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">Bathrooms</div>
+                <div class="detail-value">2.5</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">Square Feet</div>
+                <div class="detail-value">2,300</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-label">Lot Size</div>
+                <div class="detail-value">0.5 Acres</div>
+            </div>
         </div>
 
         <!-- Property Description -->
         <div class="description">
-            <h2>About the Property</h2>
-            <p>Welcome to 2200 Le Loup Dr. This beautiful home offers a perfect blend of comfort, style, and space. Featuring an open floor plan, a completely updated kitchen, and plenty of natural light throughout.</p>
-            <p>The outdoor area features a spacious backyard perfect for weekend gatherings. Located in a quiet, highly desirable neighborhood close to excellent schools, parks, and local amenities.</p>
+            <h2>About This Exceptional Property</h2>
+            <p>Welcome to 2200 Le Loup Dr, a meticulously designed luxury residence offering a perfect blend of comfort, sophistication, and space. This stunning home features an open floor plan, a completely updated gourmet kitchen, and generous natural light throughout.</p>
+            
+            <p>Located in Prescott's highly desirable North Forty subdivision, this exceptional 2,300-square-foot custom home was built in 2022 on nearly an acre. The moment you enter, the home's impeccable attention to detail is evident.</p>
 
-            <p>Discover refined single-level living in this exceptional 2,300-square-foot custom home, built in 2022 and set on nearly an acre in Prescott's highly desirable North Forty subdivision.</p>
+            <p><strong>Living Spaces:</strong> The spacious great room serves as the heart of the residence, highlighted by a dramatic floor-to-ceiling stacked stone fireplace. Wood-grain Italian porcelain tile flooring throughout creates a warm, elegant aesthetic while providing exceptional durability.</p>
 
-            <p>From the moment you enter, the home's attention to detail is evident. The spacious great room serves as the heart of the residence, highlighted by a dramatic floor-to-ceiling stacked stone fireplace that anchors the space.</p>
+            <p><strong>Culinary Excellence:</strong> The gourmet kitchen is designed for both everyday living and entertaining. Features include an oversized island with a large farmhouse sink, custom cabinetry by Showcase Cabinetry, generous countertop space, and premium stainless steel appliances.</p>
 
-            <p>Throughout the home, wood-grain Italian porcelain tile flooring creates a warm, elegant aesthetic while providing exceptional durability and easy maintenance.</p>
+            <p><strong>Primary Sanctuary:</strong> The spacious primary suite is a private retreat with direct access to the patio. Enjoy separate his-and-hers closets, dual vanities, a beautifully tiled shower, and a luxurious soaking tub.</p>
 
-            <p>The gourmet kitchen is designed for both everyday living and entertaining, featuring an oversized island with a large farmhouse sink, custom cabinetry by Showcase Cabinetry, generous counter space, and premium stainless steel appliances.</p>
+            <p><strong>Construction Excellence:</strong> Exceptional energy-conscious features include foam insulation throughout exterior walls and roof (including garage), a fire sprinkler system, and a re-circulating hot water system for instant hot water throughout the home.</p>
 
-            <p>The spacious primary suite is a private retreat, with direct access to the patio, separate his-and-hers closets, dual vanities, a beautifully tiled shower, and a luxurious soaking tub.</p>
+            <p><strong>Outdoor Recreation:</strong> The property offers an impressive 1,200-square-foot garage accommodating two vehicles plus a Class C RV, with direct-drive access from the patio. Spacious backyard perfect for weekend gatherings and entertaining.</p>
 
-            <p>Exceptional construction and energy-conscious features include foam insulation throughout the exterior walls and roof, including the garage, a fire sprinkler system, and a re-circulating hot water system for instant hot water throughout the home.</p>
-
-            <p>For the car enthusiast, outdoor recreation lover, or RV owner, the property offers an impressive 1,200-square-foot garage, accommodating two vehicles plus a Class C RV. Direct-drive access from the patio adds convenience.</p>
-
-            <p>Life at North Forty places you just minutes from the restaurants, boutiques, galleries, and entertainment surrounding Prescott's historic Courthouse Square, while the expansive beautiful Arizona landscape creates a peaceful, private sanctuary.</p>
-
-            <p>A beautifully crafted, energy-conscious Prescott home offering quality, functionality, and an enviable North Forty location—designed for those who appreciate exceptional single-level living.</p>
+            <p><strong>Location:</strong> Just minutes from Prescott's historic Courthouse Square with its restaurants, boutiques, galleries, and entertainment. Surrounded by expansive Arizona landscape creating a peaceful, private sanctuary while maintaining close proximity to excellent schools and local amenities.</p>
         </div>
 
         <!-- Photo Gallery Section -->
-        <h2 class="gallery-header">Property Gallery</h2>
-        <div class="gallery" id="gallery">
-            <figure class="gallery-item" data-index="0" data-caption="Front view of property">
-                <img src="photos/01-Front.jpg" alt="Front view of property">
-                <figcaption>Front view of property</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="1" data-caption="Front exterior view">
-                <img src="photos/02-Front.jpg" alt="Front exterior view">
-                <figcaption>Front exterior view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="2" data-caption="Foyer">
-                <img src="photos/03-Foyer.jpg" alt="Foyer">
-                <figcaption>Foyer</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="3" data-caption="Foyer entryway">
-                <img src="photos/04-Foyer.jpg" alt="Foyer entryway">
-                <figcaption>Foyer entryway</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="4" data-caption="Living room">
-                <img src="photos/05-Living%20Room.jpg" alt="Living room">
-                <figcaption>Living room</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="5" data-caption="Living room seating area">
-                <img src="photos/06-Living%20Room.jpg" alt="Living room seating area">
-                <figcaption>Living room seating area</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="6" data-caption="Living room overview">
-                <img src="photos/07-Living%20Room.jpg" alt="Living room overview">
-                <figcaption>Living room overview</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="7" data-caption="Living room detail">
-                <img src="photos/08-Living%20Room.jpg" alt="Living room detail">
-                <figcaption>Living room detail</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="8" data-caption="Living room detail view">
-                <img src="photos/09-Living%20Room.jpg" alt="Living room detail view">
-                <figcaption>Living room detail view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="9" data-caption="Laundry room">
-                <img src="photos/10-Laundry%20Room.jpg" alt="Laundry room">
-                <figcaption>Laundry room</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="10" data-caption="Laundry room storage area">
-                <img src="photos/11-Laundry%20Room.jpg" alt="Laundry room storage area">
-                <figcaption>Laundry room storage area</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="11" data-caption="Kitchen">
-                <img src="photos/12-Kitchen.jpg" alt="Kitchen">
-                <figcaption>Kitchen</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="12" data-caption="Kitchen island">
-                <img src="photos/13-Kitchen.jpg" alt="Kitchen island">
-                <figcaption>Kitchen island</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="13" data-caption="Kitchen detail">
-                <img src="photos/14-Kitchen.jpg" alt="Kitchen detail">
-                <figcaption>Kitchen detail</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="14" data-caption="Dining room">
-                <img src="photos/15-Dining%20Room.jpg" alt="Dining room">
-                <figcaption>Dining room</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="15" data-caption="Kitchen cabinetry">
-                <img src="photos/16-Kitchen.jpg" alt="Kitchen cabinetry">
-                <figcaption>Kitchen cabinetry</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="16" data-caption="Kitchen view">
-                <img src="photos/17-Kitchen.jpg" alt="Kitchen view">
-                <figcaption>Kitchen view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="17" data-caption="Primary suite">
-                <img src="photos/18-Primary%20Suite.jpg" alt="Primary suite">
-                <figcaption>Primary suite</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="18" data-caption="Primary suite bedroom">
-                <img src="photos/19-Primary%20Suite.jpg" alt="Primary suite bedroom">
-                <figcaption>Primary suite bedroom</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="19" data-caption="Primary suite bath">
-                <img src="photos/20-Primary%20Suite.jpg" alt="Primary suite bath">
-                <figcaption>Primary suite bath</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="20" data-caption="Primary suite details">
-                <img src="photos/21-Primary%20Suite.jpg" alt="Primary suite details">
-                <figcaption>Primary suite details</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="21" data-caption="Primary suite bathroom lighting">
-                <img src="photos/22-Primary%20Suite.jpg" alt="Primary suite bathroom lighting">
-                <figcaption>Primary suite bathroom lighting</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="22" data-caption="Primary suite bedroom view">
-                <img src="photos/23-Primary%20Suite.jpg" alt="Primary suite bedroom view">
-                <figcaption>Primary suite bedroom view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="23" data-caption="Primary suite retreat">
-                <img src="photos/24-Primary%20Suite.jpg" alt="Primary suite retreat">
-                <figcaption>Primary suite retreat</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="24" data-caption="Bedroom 2">
-                <img src="photos/25-Bedroom%202.jpg" alt="Bedroom 2">
-                <figcaption>Bedroom 2</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="25" data-caption="Bedroom 2 details">
-                <img src="photos/26-Bedroom%202.jpg" alt="Bedroom 2 details">
-                <figcaption>Bedroom 2 details</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="26" data-caption="Bathroom">
-                <img src="photos/27-Bathroom.jpg" alt="Bathroom">
-                <figcaption>Bathroom</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="27" data-caption="Bedroom 3">
-                <img src="photos/28-Bedroom%203.jpg" alt="Bedroom 3">
-                <figcaption>Bedroom 3</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="28" data-caption="Bedroom 3 details">
-                <img src="photos/29-Bedroom%203.jpg" alt="Bedroom 3 details">
-                <figcaption>Bedroom 3 details</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="29" data-caption="Aerial view">
-                <img src="photos/30-Aerial.jpg" alt="Aerial view">
-                <figcaption>Aerial view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="30" data-caption="Aerial landscape view">
-                <img src="photos/31-Aerial.jpg" alt="Aerial landscape view">
-                <figcaption>Aerial landscape view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="31" data-caption="Aerial property view">
-                <img src="photos/32-Aerial.jpg" alt="Aerial property view">
-                <figcaption>Aerial property view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="32" data-caption="Aerial surrounding view">
-                <img src="photos/33-Aerial.jpg" alt="Aerial surrounding view">
-                <figcaption>Aerial surrounding view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="33" data-caption="Aerial view of property and land">
-                <img src="photos/34-Aerial.jpg" alt="Aerial view of property and land">
-                <figcaption>Aerial view of property and land</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="34" data-caption="Patio">
-                <img src="photos/35-Patio.jpg" alt="Patio">
-                <figcaption>Patio</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="35" data-caption="Patio seating">
-                <img src="photos/36-Patio.jpg" alt="Patio seating">
-                <figcaption>Patio seating</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="36" data-caption="Patio entertainment area">
-                <img src="photos/37-Patio.jpg" alt="Patio entertainment area">
-                <figcaption>Patio entertainment area</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="37" data-caption="Patio evening view">
-                <img src="photos/38-Patio.jpg" alt="Patio evening view">
-                <figcaption>Patio evening view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="38" data-caption="Backyard">
-                <img src="photos/39-Backyard.jpg" alt="Backyard">
-                <figcaption>Backyard</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="39" data-caption="Backyard view">
-                <img src="photos/40-Backyard.jpg" alt="Backyard view">
-                <figcaption>Backyard view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="40" data-caption="Garage">
-                <img src="photos/41-Garage.jpg" alt="Garage">
-                <figcaption>Garage</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="41" data-caption="Garage interior">
-                <img src="photos/42-Garage.jpg" alt="Garage interior">
-                <figcaption>Garage interior</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="42" data-caption="Aerial panoramic view">
-                <img src="photos/43-Aerial.jpg" alt="Aerial panoramic view">
-                <figcaption>Aerial panoramic view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="43" data-caption="Aerial landscape overview">
-                <img src="photos/44-Aerial.jpg" alt="Aerial landscape overview">
-                <figcaption>Aerial landscape overview</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="44" data-caption="Aerial property view">
-                <img src="photos/45-Aerial.jpg" alt="Aerial property view">
-                <figcaption>Aerial property view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="45" data-caption="Aerial yard view">
-                <img src="photos/46-Aerial.jpg" alt="Aerial yard view">
-                <figcaption>Aerial yard view</figcaption>
-            </figure>
-            <figure class="gallery-item" data-index="46" data-caption="Aerial final view">
-                <img src="photos/47-Aerial.jpg" alt="Aerial final view">
-                <figcaption>Aerial final view</figcaption>
-            </figure>
+        <div class="gallery-section">
+            <h2 class="gallery-header">Property Gallery</h2>
+            <div class="gallery" id="gallery">
+                <figure class="gallery-item" data-index="0" data-caption="Front view of property">
+                    <img src="photos/01-Front.jpg" alt="Front view of property">
+                    <figcaption>Front view</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="1" data-caption="Front exterior view">
+                    <img src="photos/02-Front.jpg" alt="Front exterior view">
+                    <figcaption>Front exterior</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="2" data-caption="Foyer">
+                    <img src="photos/03-Foyer.jpg" alt="Foyer">
+                    <figcaption>Foyer</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="3" data-caption="Foyer entryway">
+                    <img src="photos/04-Foyer.jpg" alt="Foyer entryway">
+                    <figcaption>Foyer entryway</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="4" data-caption="Living room">
+                    <img src="photos/05-Living%20Room.jpg" alt="Living room">
+                    <figcaption>Living room</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="5" data-caption="Living room seating">
+                    <img src="photos/06-Living%20Room.jpg" alt="Living room seating">
+                    <figcaption>Living room seating</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="6" data-caption="Living room overview">
+                    <img src="photos/07-Living%20Room.jpg" alt="Living room overview">
+                    <figcaption>Living room overview</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="7" data-caption="Living room detail">
+                    <img src="photos/08-Living%20Room.jpg" alt="Living room detail">
+                    <figcaption>Living room detail</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="8" data-caption="Living room detail view">
+                    <img src="photos/09-Living%20Room.jpg" alt="Living room detail view">
+                    <figcaption>Living room detail</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="9" data-caption="Laundry room">
+                    <img src="photos/10-Laundry%20Room.jpg" alt="Laundry room">
+                    <figcaption>Laundry room</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="10" data-caption="Laundry room storage">
+                    <img src="photos/11-Laundry%20Room.jpg" alt="Laundry room storage">
+                    <figcaption>Laundry room storage</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="11" data-caption="Kitchen">
+                    <img src="photos/12-Kitchen.jpg" alt="Kitchen">
+                    <figcaption>Kitchen</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="12" data-caption="Kitchen island">
+                    <img src="photos/13-Kitchen.jpg" alt="Kitchen island">
+                    <figcaption>Kitchen island</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="13" data-caption="Kitchen cabinetry">
+                    <img src="photos/14-Kitchen.jpg" alt="Kitchen cabinetry">
+                    <figcaption>Kitchen cabinetry</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="14" data-caption="Dining room">
+                    <img src="photos/15-Dining%20Room.jpg" alt="Dining room">
+                    <figcaption>Dining room</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="15" data-caption="Kitchen detail">
+                    <img src="photos/16-Kitchen.jpg" alt="Kitchen detail">
+                    <figcaption>Kitchen detail</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="16" data-caption="Kitchen view">
+                    <img src="photos/17-Kitchen.jpg" alt="Kitchen view">
+                    <figcaption>Kitchen view</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="17" data-caption="Primary suite">
+                    <img src="photos/18-Primary%20Suite.jpg" alt="Primary suite">
+                    <figcaption>Primary suite</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="18" data-caption="Primary suite bedroom">
+                    <img src="photos/19-Primary%20Suite.jpg" alt="Primary suite bedroom">
+                    <figcaption>Primary bedroom</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="19" data-caption="Primary suite bathroom">
+                    <img src="photos/20-Primary%20Suite.jpg" alt="Primary suite bathroom">
+                    <figcaption>Primary bath</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="20" data-caption="Primary suite details">
+                    <img src="photos/21-Primary%20Suite.jpg" alt="Primary suite details">
+                    <figcaption>Primary suite details</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="21" data-caption="Primary suite lighting">
+                    <img src="photos/22-Primary%20Suite.jpg" alt="Primary suite lighting">
+                    <figcaption>Primary lighting</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="22" data-caption="Primary suite view">
+                    <img src="photos/23-Primary%20Suite.jpg" alt="Primary suite view">
+                    <figcaption>Primary suite view</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="23" data-caption="Primary suite retreat">
+                    <img src="photos/24-Primary%20Suite.jpg" alt="Primary suite retreat">
+                    <figcaption>Primary retreat</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="24" data-caption="Bedroom 2">
+                    <img src="photos/25-Bedroom%202.jpg" alt="Bedroom 2">
+                    <figcaption>Bedroom 2</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="25" data-caption="Bedroom 2 details">
+                    <img src="photos/26-Bedroom%202.jpg" alt="Bedroom 2 details">
+                    <figcaption>Bedroom 2 details</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="26" data-caption="Bathroom">
+                    <img src="photos/27-Bathroom.jpg" alt="Bathroom">
+                    <figcaption>Bathroom</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="27" data-caption="Bedroom 3">
+                    <img src="photos/28-Bedroom%203.jpg" alt="Bedroom 3">
+                    <figcaption>Bedroom 3</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="28" data-caption="Bedroom 3 details">
+                    <img src="photos/29-Bedroom%203.jpg" alt="Bedroom 3 details">
+                    <figcaption>Bedroom 3 details</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="29" data-caption="Aerial view">
+                    <img src="photos/30-Aerial.jpg" alt="Aerial view">
+                    <figcaption>Aerial view</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="30" data-caption="Aerial landscape">
+                    <img src="photos/31-Aerial.jpg" alt="Aerial landscape">
+                    <figcaption>Aerial landscape</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="31" data-caption="Aerial property view">
+                    <img src="photos/32-Aerial.jpg" alt="Aerial property view">
+                    <figcaption>Aerial property</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="32" data-caption="Aerial surrounding">
+                    <img src="photos/33-Aerial.jpg" alt="Aerial surrounding">
+                    <figcaption>Aerial surrounding</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="33" data-caption="Aerial property and land">
+                    <img src="photos/34-Aerial.jpg" alt="Aerial property and land">
+                    <figcaption>Aerial property land</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="34" data-caption="Patio">
+                    <img src="photos/35-Patio.jpg" alt="Patio">
+                    <figcaption>Patio</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="35" data-caption="Patio seating">
+                    <img src="photos/36-Patio.jpg" alt="Patio seating">
+                    <figcaption>Patio seating</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="36" data-caption="Patio entertainment">
+                    <img src="photos/37-Patio.jpg" alt="Patio entertainment">
+                    <figcaption>Patio entertainment</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="37" data-caption="Patio evening">
+                    <img src="photos/38-Patio.jpg" alt="Patio evening">
+                    <figcaption>Patio evening</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="38" data-caption="Backyard">
+                    <img src="photos/39-Backyard.jpg" alt="Backyard">
+                    <figcaption>Backyard</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="39" data-caption="Backyard view">
+                    <img src="photos/40-Backyard.jpg" alt="Backyard view">
+                    <figcaption>Backyard view</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="40" data-caption="Garage">
+                    <img src="photos/41-Garage.jpg" alt="Garage">
+                    <figcaption>Garage</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="41" data-caption="Garage interior">
+                    <img src="photos/42-Garage.jpg" alt="Garage interior">
+                    <figcaption>Garage interior</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="42" data-caption="Aerial panoramic">
+                    <img src="photos/43-Aerial.jpg" alt="Aerial panoramic">
+                    <figcaption>Aerial panoramic</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="43" data-caption="Aerial overview">
+                    <img src="photos/44-Aerial.jpg" alt="Aerial overview">
+                    <figcaption>Aerial overview</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="44" data-caption="Aerial property">
+                    <img src="photos/45-Aerial.jpg" alt="Aerial property">
+                    <figcaption>Aerial property</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="45" data-caption="Aerial yard view">
+                    <img src="photos/46-Aerial.jpg" alt="Aerial yard view">
+                    <figcaption>Aerial yard view</figcaption>
+                </figure>
+                <figure class="gallery-item" data-index="46" data-caption="Aerial final view">
+                    <img src="photos/47-Aerial.jpg" alt="Aerial final view">
+                    <figcaption>Aerial final</figcaption>
+                </figure>
+            </div>
         </div>
 
         <!-- Call to Action / Contact -->
         <div class="contact-box">
             <h2>Interested in a Private Showing?</h2>
             <p>Direct inquiries from serious buyers or buyers' agents are welcome.</p>
-            <a href="mailto:your-email@example.com" class="contact-btn">Contact Owner</a>
+            <a href="mailto:scottay.andrew@gmail.com" class="contact-btn">Contact Owner</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 2200 Le Loup Dr. All rights reserved.</p>
+        <p>&copy; 2026 2200 Le Loup Dr. All rights reserved. | Premium Real Estate Listing</p>
     </footer>
 
     <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -532,11 +720,13 @@
             lightboxCaption.textContent = item.dataset.caption || image.alt;
             lightbox.classList.add('open');
             lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
             lightbox.classList.remove('open');
             lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
         }
 
         function showNextImage(direction) {
