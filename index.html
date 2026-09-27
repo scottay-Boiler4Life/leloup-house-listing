@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2200 Le Loup Dr, Prescott, Arizona. Luxury North Forty retreat with 3 bedrooms, 2.5 bathrooms, 2,300 sq. ft., custom finishes, and expansive Arizona views. Listed at $1,082,000. Contact Phil Richardson at 928-671-0627.">
+    <meta name="description" content="2200 Le Loup Dr, Prescott, Arizona. Luxury North Forty retreat with 3 bedrooms, 2.5 bathrooms, 2,300 sq. ft., custom finishes, and expansive Arizona views.">
     <meta name="theme-color" content="#1a1a1a">
     <meta property="og:title" content="2200 Le Loup Dr | Prescott, Arizona | Phil Richardson">
     <meta property="og:description" content="Custom North Forty Retreat in Prescott, Arizona. Luxury home details, gallery, and contact information for Phil Richardson.">
@@ -12,9 +12,10 @@
     <style>
         /* Premium luxury real estate styling */
         :root {
-            --luxury-dark: #1a1a1a;
+            --luxury-dark: #2a2a2a;
             --gold: #d4af37;
-            --sage: #6b8e7e;
+            --sage: #7a9b8e;
+            --rust: #a85c47;
             --cream: #f5f3f0;
             --white: #ffffff;
             --text: #2d2d2d;
@@ -39,7 +40,7 @@
 
         /* Header & Logo */
         header {
-            background: linear-gradient(135deg, var(--luxury-dark) 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, var(--luxury-dark) 0%, #3a3a3a 100%);
             color: var(--white);
             padding: 30px 20px 20px;
             text-align: center;
@@ -114,6 +115,106 @@
             padding: 50px 20px;
         }
 
+        /* Hero Carousel Section */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin-bottom: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px var(--shadow-deep);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 40px 30px 30px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--gold);
+            width: 30px;
+            border-radius: 5px;
+        }
+
         /* Price Section */
         .price-section {
             text-align: center;
@@ -156,12 +257,13 @@
             box-shadow: 0 2px 12px var(--shadow);
             border-left: 4px solid var(--sage);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
         }
 
         .detail-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px var(--shadow-deep);
+            border-left-color: var(--rust);
         }
 
         .detail-value {
@@ -181,7 +283,7 @@
         /* Agent Card */
         .agent-card {
             margin: 0 0 50px;
-            background: linear-gradient(135deg, rgba(26,26,26,0.98), rgba(52,52,52,0.98));
+            background: linear-gradient(135deg, var(--luxury-dark) 0%, #3a3a3a 100%);
             color: var(--white);
             border-radius: 12px;
             padding: clamp(24px, 4vw, 40px);
@@ -305,12 +407,33 @@
             box-shadow: 0 12px 32px var(--shadow-deep);
         }
 
+        .gallery-item::before {
+            content: "🔍";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
         .gallery-item img {
             display: block;
             width: 100%;
             height: 280px;
             object-fit: cover;
             background: var(--luxury-dark);
+            transition: filter 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: brightness(0.7);
         }
 
         .gallery-item figcaption {
@@ -325,7 +448,7 @@
 
         /* Contact Section */
         .contact-box {
-            background: linear-gradient(135deg, var(--luxury-dark) 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, var(--luxury-dark) 0%, #3a3a3a 100%);
             color: var(--white);
             text-align: center;
             padding: clamp(40px, 6vw, 60px) 30px;
@@ -402,6 +525,10 @@
                 padding-left: 0;
                 padding-top: 16px;
             }
+
+            .hero-carousel {
+                height: 350px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -437,6 +564,15 @@
                 font-size: 0.72rem;
                 letter-spacing: 1px;
                 padding: 8px 14px;
+            }
+
+            .hero-carousel {
+                height: 280px;
+            }
+
+            .carousel-caption {
+                font-size: 1rem;
+                padding: 30px 20px 20px;
             }
         }
 
@@ -553,6 +689,37 @@
     </header>
 
     <div class="container">
+        <!-- Hero Carousel -->
+        <div class="hero-carousel">
+            <div class="carousel-container" id="carouselContainer">
+                <div class="carousel-slide active">
+                    <img src="photos/01-Front.jpg" alt="Front view of property">
+                    <div class="carousel-caption">Stunning Front Exterior</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/05-Living%20Room.jpg" alt="Living room">
+                    <div class="carousel-caption">Elegant Living Room</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/12-Kitchen.jpg" alt="Kitchen">
+                    <div class="carousel-caption">Gourmet Kitchen</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/18-Primary%20Suite.jpg" alt="Primary suite">
+                    <div class="carousel-caption">Luxurious Primary Suite</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/30-Aerial.jpg" alt="Aerial view">
+                    <div class="carousel-caption">Aerial Property View</div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="dots"></div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">‹</button>
+                <button class="carousel-btn" id="nextBtn">›</button>
+            </div>
+        </div>
+
         <!-- Price Section -->
         <div class="price-section">
             <div class="price">$1,082,000</div>
@@ -598,21 +765,21 @@
         <!-- Property Description -->
         <div class="description">
             <h2>About This Exceptional Property</h2>
-            <p>Welcome to 2200 Le Loup Dr, a meticulously designed luxury residence offering a perfect blend of comfort, sophistication, and space. This stunning home features an open floor plan,[...]
+            <p>Welcome to 2200 Le Loup Dr, a meticulously designed luxury residence offering a perfect blend of comfort, sophistication, and space. This stunning home features an open floor plan, high-end finishes, and modern amenities designed for the discerning buyer seeking an Arizona lifestyle retreat.</p>
             
-            <p>Located in Prescott's highly desirable North Forty subdivision, this exceptional 2,300-square-foot custom home was built in 2022 on nearly an acre. The moment you enter, the home's[...]
+            <p>Located in Prescott's highly desirable North Forty subdivision, this exceptional 2,300-square-foot custom home was built in 2022 on nearly an acre. The moment you enter, the home's elegant aesthetic and meticulous attention to detail become apparent, with premium materials and thoughtful design throughout.</p>
 
-            <p><strong>Living Spaces:</strong> The spacious great room serves as the heart of the residence, highlighted by a dramatic floor-to-ceiling stacked stone fireplace. Wood-grain Italian[...]
+            <p><strong>Living Spaces:</strong> The spacious great room serves as the heart of the residence, highlighted by a dramatic floor-to-ceiling stacked stone fireplace. Wood-grain Italian porcelain tile flows seamlessly throughout, creating a cohesive and sophisticated aesthetic. Floor-to-ceiling windows frame Arizona's natural beauty.</p>
 
-            <p><strong>Culinary Excellence:</strong> The gourmet kitchen is designed for both everyday living and entertaining. Features include an oversized island with a large farmhouse sink, c[...]
+            <p><strong>Culinary Excellence:</strong> The gourmet kitchen is designed for both everyday living and entertaining. Features include an oversized island with a large farmhouse sink, custom cabinetry, premium stainless steel appliances, and abundant natural light. The kitchen opens to the main living areas, perfect for hosting.</p>
 
-            <p><strong>Primary Sanctuary:</strong> The spacious primary suite is a private retreat with direct access to the patio. Enjoy separate his-and-hers closets, dual vanities, a beautiful[...]
+            <p><strong>Primary Sanctuary:</strong> The spacious primary suite is a private retreat with direct access to the patio. Enjoy separate his-and-hers closets, dual vanities, a beautiful walk-in shower with natural stone, and heated floors for ultimate comfort.</p>
 
-            <p><strong>Construction Excellence:</strong> Exceptional energy-conscious features include foam insulation throughout exterior walls and roof (including garage), a fire sprinkler syst[...]
+            <p><strong>Construction Excellence:</strong> Exceptional energy-conscious features include foam insulation throughout exterior walls and roof (including garage), a fire sprinkler system, smart home pre-wiring, and premium HVAC systems designed for Arizona's climate.</p>
 
-            <p><strong>Outdoor Recreation:</strong> The property offers an impressive 1,200-square-foot garage accommodating two vehicles plus a Class C RV, with direct-drive access from the pati[...]
+            <p><strong>Outdoor Recreation:</strong> The property offers an impressive 1,200-square-foot garage accommodating two vehicles plus a Class C RV, with direct-drive access from the patio. Multiple outdoor living spaces showcase Arizona's dramatic sunsets and mountain vistas.</p>
 
-            <p><strong>Location:</strong> Just minutes from Prescott's historic Courthouse Square with its restaurants, boutiques, galleries, and entertainment. Surrounded by expansive Arizona la[...]
+            <p><strong>Location:</strong> Just minutes from Prescott's historic Courthouse Square with its restaurants, boutiques, galleries, and entertainment. Surrounded by expansive Arizona landscape with privacy and natural beauty at your doorstep.</p>
         </div>
 
         <!-- Photo Gallery Section -->
@@ -839,13 +1006,71 @@
     </div>
 
     <script>
+        // Carousel functionality
+        const carouselContainer = document.getElementById('carouselContainer');
+        const slides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
+        const dotsContainer = document.getElementById('dots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+        let autoplayInterval;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot${index === 0 ? ' active' : ''}`;
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
+
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextSlide, 5000);
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // Start autoplay
+        resetAutoplay();
+
+        // Gallery lightbox functionality
         const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
         const lightboxCaption = document.getElementById('lightbox-caption');
         const closeButton = document.querySelector('.lightbox-close');
-        const prevButton = document.querySelector('.lightbox-prev');
-        const nextButton = document.querySelector('.lightbox-next');
+        const prevLightboxBtn = document.querySelector('.lightbox-prev');
+        const nextLightboxBtn = document.querySelector('.lightbox-next');
 
         let currentIndex = 0;
 
@@ -877,8 +1102,8 @@
         });
 
         closeButton.addEventListener('click', closeLightbox);
-        prevButton.addEventListener('click', () => showNextImage(-1));
-        nextButton.addEventListener('click', () => showNextImage(1));
+        prevLightboxBtn.addEventListener('click', () => showNextImage(-1));
+        nextLightboxBtn.addEventListener('click', () => showNextImage(1));
 
         lightbox.addEventListener('click', (event) => {
             if (event.target === lightbox) {
