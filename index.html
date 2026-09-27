@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2200 Le Loup Dr - Custom North Forty Retreat | Prescott, Arizona</title>
+    <meta name="description" content="2200 Le Loup Dr, Prescott, Arizona. Luxury North Forty retreat with 4 bedrooms, 2.5 bathrooms, 2,300 sq. ft., custom finishes, and expansive Arizona views. Listed by Phil Richardson.">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta property="og:title" content="2200 Le Loup Dr | Prescott, Arizona | Phil Richardson">
+    <meta property="og:description" content="Custom North Forty Retreat in Prescott, Arizona. Luxury home details, gallery, and contact information for Phil Richardson.">
+    <meta property="og:type" content="website">
+    <title>2200 Le Loup Dr | Prescott, Arizona | Phil Richardson</title>
     <style>
         /* Premium luxury real estate styling */
         :root {
@@ -36,7 +41,7 @@
         header {
             background: linear-gradient(135deg, var(--luxury-dark) 0%, #2d2d2d 100%);
             color: var(--white);
-            padding: 30px 20px;
+            padding: 30px 20px 20px;
             text-align: center;
             border-bottom: 3px solid var(--gold);
             position: relative;
@@ -47,7 +52,7 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .logo {
@@ -87,6 +92,20 @@
             color: #c9c9c9;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        .agent-badge {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 18px;
+            border: 1px solid rgba(212, 175, 55, 0.65);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #f7f1dc;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
         .container {
@@ -157,6 +176,62 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Agent Card */
+        .agent-card {
+            margin: 0 0 50px;
+            background: linear-gradient(135deg, rgba(26,26,26,0.98), rgba(52,52,52,0.98));
+            color: var(--white);
+            border-radius: 12px;
+            padding: clamp(24px, 4vw, 40px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .agent-card-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .agent-card h2 {
+            margin: 0 0 8px;
+            color: var(--gold);
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            letter-spacing: 0.5px;
+        }
+
+        .agent-title {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-size: 0.8rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #d6d6d6;
+        }
+
+        .agent-card p {
+            margin: 0;
+            color: #ebebeb;
+            line-height: 1.8;
+            font-size: 1.04rem;
+        }
+
+        .agent-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-left: 2px solid rgba(212, 175, 55, 0.5);
+            padding-left: 20px;
+        }
+
+        .agent-meta span {
+            display: block;
+            color: #f7f2df;
+            font-size: 0.96rem;
+            letter-spacing: 0.2px;
         }
 
         /* Description Section */
@@ -272,6 +347,27 @@
             color: #d4d4d4;
         }
 
+        .contact-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 18px;
+            margin: 0 auto 25px;
+            max-width: 760px;
+            color: #f1e7c8;
+            font-size: 0.94rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-meta span {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: rgba(255,255,255,0.03);
+        }
+
         .contact-btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--gold), #e6c200);
@@ -293,6 +389,19 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
             background: linear-gradient(135deg, #e6c200, var(--gold));
+        }
+
+        @media (max-width: 800px) {
+            .agent-card-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-meta {
+                border-left: none;
+                border-top: 2px solid rgba(212,175,55,0.5);
+                padding-left: 0;
+                padding-top: 16px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -322,6 +431,12 @@
             .contact-btn {
                 width: 100%;
                 padding: 14px 30px;
+            }
+
+            .agent-badge {
+                font-size: 0.72rem;
+                letter-spacing: 1px;
+                padding: 8px 14px;
             }
         }
 
@@ -434,6 +549,7 @@
         </div>
         <p>Custom North Forty Retreat</p>
         <div class="tagline">Prescott, Arizona</div>
+        <div class="agent-badge">Phil Richardson | Listing Agent / Owner</div>
     </header>
 
     <div class="container">
@@ -460,6 +576,21 @@
             <div class="detail-card">
                 <div class="detail-label">Lot Size</div>
                 <div class="detail-value">0.5 Acres</div>
+            </div>
+        </div>
+
+        <div class="agent-card">
+            <div class="agent-card-inner">
+                <div>
+                    <div class="agent-title">Represented by</div>
+                    <h2>Phil Richardson</h2>
+                    <p>Luxury real estate expert serving Prescott and the North Forty community with a focus on exceptional homes, buyer representation, and personalized client guidance.</p>
+                </div>
+                <div class="agent-meta">
+                    <span>Listing Agent / Owner</span>
+                    <span>Prescott, Arizona</span>
+                    <span>North Forty Specialties</span>
+                </div>
             </div>
         </div>
 
@@ -682,12 +813,17 @@
         <div class="contact-box">
             <h2>Interested in a Private Showing?</h2>
             <p>Direct inquiries from serious buyers or buyers' agents are welcome.</p>
-            <a href="mailto:scottay.andrew@gmail.com" class="contact-btn">Contact Owner</a>
+            <div class="contact-meta">
+                <span>Phil Richardson</span>
+                <span>Listing Agent / Owner</span>
+                <span>Prescott, Arizona</span>
+            </div>
+            <a href="mailto:scottay.andrew@gmail.com?subject=2200%20Le%20Loup%20Dr%20Inquiry" class="contact-btn">Contact Phil Richardson</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 2200 Le Loup Dr. All rights reserved. | Premium Real Estate Listing</p>
+        <p>&copy; 2026 2200 Le Loup Dr. All rights reserved. | Represented by Phil Richardson</p>
     </footer>
 
     <div class="lightbox" id="lightbox" aria-hidden="true">
