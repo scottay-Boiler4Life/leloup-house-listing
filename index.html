@@ -115,104 +115,155 @@
             padding: 50px 20px;
         }
 
-        /* Hero Carousel Section */
-        .hero-carousel {
+        /* Hero Section - Full Width Background */
+        .hero-section {
             position: relative;
             width: 100%;
-            height: 500px;
-            margin-bottom: 50px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px var(--shadow-deep);
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            height: 600px;
+            background: linear-gradient(135deg, rgba(42, 42, 42, 0.65) 0%, rgba(26, 26, 26, 0.75) 100%),
+                        url('photos/01-Front.jpg') center/cover no-repeat fixed;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: var(--white);
-            padding: 40px 30px 30px;
-            font-size: 1.3rem;
-            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        .hero-content {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1.1;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 0;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Quick-Facts Badge */
+        .quick-facts-badge {
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 25px 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .quick-fact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+        }
+
+        .quick-fact-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .quick-fact-value {
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            font-weight: 700;
+            color: var(--white);
             letter-spacing: 0.5px;
         }
 
-        .carousel-controls {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 10;
+        .quick-fact-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9c9c9;
+            font-weight: 600;
         }
 
-        .carousel-btn {
-            width: 45px;
-            height: 45px;
+        /* Primary CTA Button */
+        .hero-cta {
+            position: relative;
+            display: inline-block;
+            padding: 18px 60px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            color: var(--luxury-dark);
+            background: linear-gradient(135deg, var(--gold), #e6c200);
             border: none;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            color: var(--white);
-            font-size: 1.5rem;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+            overflow: hidden;
         }
 
-        .carousel-btn:hover {
-            background: rgba(255,255,255,0.4);
-            transform: scale(1.1);
-        }
-
-        .carousel-dots {
+        .hero-cta::before {
+            content: '';
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
         }
 
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.45);
+            background: linear-gradient(135deg, #e6c200, var(--gold));
         }
 
-        .dot.active {
-            background: var(--gold);
-            width: 30px;
-            border-radius: 5px;
+        .hero-cta:hover::before {
+            left: 100%;
+        }
+
+        .hero-cta:active {
+            transform: translateY(-1px);
+        }
+
+        /* Pulse animation for emphasis */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+            }
+            50% {
+                box-shadow: 0 12px 40px rgba(212, 175, 55, 0.55);
+            }
+        }
+
+        .hero-cta {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .hero-cta:hover {
+            animation: none;
         }
 
         /* Price Section */
@@ -514,7 +565,49 @@
             background: linear-gradient(135deg, #e6c200, var(--gold));
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
+            .quick-facts-badge {
+                gap: 15px;
+                padding: 20px 30px;
+            }
+
+            .quick-fact {
+                min-width: 100px;
+            }
+
+            .hero-section {
+                height: 500px;
+            }
+
+            .hero-content {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 450px;
+                background-attachment: scroll;
+            }
+
+            .quick-facts-badge {
+                gap: 12px;
+                padding: 15px 20px;
+            }
+
+            .quick-fact {
+                min-width: 90px;
+            }
+
+            .quick-fact-value {
+                font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                padding: 14px 40px;
+                font-size: 0.95rem;
+            }
+
             .agent-card-inner {
                 grid-template-columns: 1fr;
             }
@@ -524,10 +617,6 @@
                 border-top: 2px solid rgba(212,175,55,0.5);
                 padding-left: 0;
                 padding-top: 16px;
-            }
-
-            .hero-carousel {
-                height: 350px;
             }
         }
 
@@ -544,6 +633,47 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.5rem;
+            }
+
+            .hero-section {
+                height: 380px;
+            }
+
+            .hero-content {
+                gap: 25px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .quick-facts-badge {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+                border-radius: 15px;
+            }
+
+            .quick-fact {
+                flex-direction: row;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                min-width: auto;
+            }
+
+            .quick-fact-icon {
+                font-size: 1.5rem;
+            }
+
+            .quick-fact-value {
+                font-size: 1.1rem;
+            }
+
+            .hero-cta {
+                width: 100%;
+                padding: 12px 30px;
+                font-size: 0.9rem;
             }
 
             .detail-card {
@@ -564,15 +694,6 @@
                 font-size: 0.72rem;
                 letter-spacing: 1px;
                 padding: 8px 14px;
-            }
-
-            .hero-carousel {
-                height: 280px;
-            }
-
-            .carousel-caption {
-                font-size: 1rem;
-                padding: 30px 20px 20px;
             }
         }
 
@@ -688,38 +809,50 @@
         <div class="agent-badge">Phil Richardson | Listing Agent / Owner</div>
     </header>
 
-    <div class="container">
-        <!-- Hero Carousel -->
-        <div class="hero-carousel">
-            <div class="carousel-container" id="carouselContainer">
-                <div class="carousel-slide active">
-                    <img src="photos/01-Front.jpg" alt="Front view of property">
-                    <div class="carousel-caption">Stunning Front Exterior</div>
+    <!-- Hero Section with Full-Width Background -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">2200 Le Loup Dr</h1>
+            <p class="hero-subtitle">Luxury North Forty Retreat</p>
+            
+            <!-- Quick-Facts Badge -->
+            <div class="quick-facts-badge">
+                <div class="quick-fact">
+                    <div class="quick-fact-icon">💰</div>
+                    <div>
+                        <div class="quick-fact-value">$1.082M</div>
+                        <div class="quick-fact-label">Price</div>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <img src="photos/05-Living%20Room.jpg" alt="Living room">
-                    <div class="carousel-caption">Elegant Living Room</div>
+                <div class="quick-fact">
+                    <div class="quick-fact-icon">🛏️</div>
+                    <div>
+                        <div class="quick-fact-value">3</div>
+                        <div class="quick-fact-label">Beds</div>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <img src="photos/12-Kitchen.jpg" alt="Kitchen">
-                    <div class="carousel-caption">Gourmet Kitchen</div>
+                <div class="quick-fact">
+                    <div class="quick-fact-icon">🚿</div>
+                    <div>
+                        <div class="quick-fact-value">2.5</div>
+                        <div class="quick-fact-label">Baths</div>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <img src="photos/18-Primary%20Suite.jpg" alt="Primary suite">
-                    <div class="carousel-caption">Luxurious Primary Suite</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="photos/30-Aerial.jpg" alt="Aerial view">
-                    <div class="carousel-caption">Aerial Property View</div>
+                <div class="quick-fact">
+                    <div class="quick-fact-icon">📐</div>
+                    <div>
+                        <div class="quick-fact-value">2,300</div>
+                        <div class="quick-fact-label">Sq Ft</div>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-dots" id="dots"></div>
-            <div class="carousel-controls">
-                <button class="carousel-btn" id="prevBtn">‹</button>
-                <button class="carousel-btn" id="nextBtn">›</button>
-            </div>
-        </div>
 
+            <!-- Primary CTA Button -->
+            <a href="#contact-box" class="hero-cta">Schedule a Private Showing</a>
+        </div>
+    </section>
+
+    <div class="container">
         <!-- Price Section -->
         <div class="price-section">
             <div class="price">$1,082,000</div>
@@ -978,7 +1111,7 @@
         </div>
 
         <!-- Call to Action / Contact -->
-        <div class="contact-box">
+        <div class="contact-box" id="contact-box">
             <h2>Interested in a Private Showing?</h2>
             <p>Direct inquiries from serious buyers or buyers' agents are welcome.</p>
             <div class="contact-meta">
@@ -1006,63 +1139,6 @@
     </div>
 
     <script>
-        // Carousel functionality
-        const carouselContainer = document.getElementById('carouselContainer');
-        const slides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
-        const dotsContainer = document.getElementById('dots');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentSlide = 0;
-        let autoplayInterval;
-
-        // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = `dot${index === 0 ? ' active' : ''}`;
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
-
-        function updateCarousel() {
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === currentSlide);
-            });
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-            resetAutoplay();
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateCarousel();
-            resetAutoplay();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateCarousel();
-            resetAutoplay();
-        }
-
-        function resetAutoplay() {
-            clearInterval(autoplayInterval);
-            autoplayInterval = setInterval(nextSlide, 5000);
-        }
-
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-
-        // Start autoplay
-        resetAutoplay();
-
         // Gallery lightbox functionality
         const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
         const lightbox = document.getElementById('lightbox');
